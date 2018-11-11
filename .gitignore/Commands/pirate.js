@@ -31,7 +31,6 @@ function pirate() {
   if (exist === 0)
   {
     apparition = Math.ceil(Math.random() * 28800)
-    console.log(apparition);
     if (apparition === 10000)
     {
       a.channel.send("Un pirate apparait !");
