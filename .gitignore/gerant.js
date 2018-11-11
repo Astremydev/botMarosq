@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
-const botconfig = require("./Commands/botconfig.json");
+const botconfig = require("./Commands/config.json");
 const fs = require("fs");
-var connection = botconfig.connect + botconfig.co;
+var connection = config.connect + config.co;
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -22,11 +22,11 @@ fs.readdir("./Commands/", (err, files) => {
   });
 });
 
-bot.login(botconfig.connect);
+bot.login(connection);
 
 bot.on("ready", async () => {
   console.log(bot.user.username + " is online !");
-  bot.user.setActivity(botconfig.prefix + "help");
+  bot.user.setActivity(config.prefix + "help");
 });
 
 bot.on('guildMemberRemove', member => {
@@ -36,7 +36,7 @@ bot.on('guildMemberRemove', member => {
 bot.on("message", async message => {
   if (message.guild.roles.find('name', 'Visiteur') && !message.member.roles.find('name','Visiteur')) {
     message.delete();
-    if (message.content === botconfig.accepter) {
+    if (message.content === config.accepter) {
       if (message.member.guild.channels.find("name", "bienvenue")) message.member.guild.channels.find("name", "bienvenue").send('Bienvenue ' + message.author.username + ' !')
       var role = message.guild.roles.find('name', 'Visiteur');
       message.member.addRole(role);
@@ -61,7 +61,7 @@ bot.on("message", async message => {
     commandfile.run(bot, message, tir);
     return;
   }
-  let prefix = botconfig.prefix;
+  let prefix = config.prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
