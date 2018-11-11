@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const botconfig = require("./botconfig.json");
+const botconfig = require("./config.json");
 
 module.exports.run = async (bot, message, args) => {
   if (!message.member.guild.channels.find("name", "débannissement")) return;
