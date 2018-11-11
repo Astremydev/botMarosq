@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const botconfig = require("./botconfig.json");
+const botconfig = require("./config.json");
 
 module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Vous n'avez pas la permission de faire ça !").then(msg => msg.delete(5000));
