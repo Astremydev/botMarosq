@@ -36,7 +36,7 @@ function pirate() {
     {
       compte++;
     }
-    if (compte == 100)
+    if (compte == 4000)
     {
       compte = 0;
       a.channel.send("Un pirate apparait !");
