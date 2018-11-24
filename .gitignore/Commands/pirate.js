@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const botconfig = require("./config.json");
 var exist = 0;
+var compte = 0;
 
 module.exports.run = async (bot, message, tir) => {
   message.delete();
@@ -30,9 +31,14 @@ module.exports.run = async (bot, message, tir) => {
 function pirate() {
   if (exist === 0)
   {
-    apparition = Math.ceil(Math.random() * 28800)
-    if (apparition === 10000)
+    apparition = Math.ceil(Math.random() * 2)
+    if (Math.ceil(Math.random() * 2) == 2)
     {
+      compte++;
+    }
+    if (compte == 100)
+    {
+      compte = 0;
       a.channel.send("Un pirate apparait !");
       exist = 1;
       setTimeout(function(){
