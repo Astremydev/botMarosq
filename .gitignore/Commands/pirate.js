@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, tir) => {
     {
       message.channel.send("Ho noooonn... " + message.author.username + " à tué le Pirate !")
       exist = 0;
-      clearTimeout();
+      clearTimeout(timer);
       message.author.createDM().then(channel => {
         channel.send('Bravo, vous avez tué le pirate !');
       });
@@ -42,7 +42,7 @@ function pirate() {
       compte = 0;
       a.channel.send("Un pirate apparait !");
       exist = 1;
-      setTimeout(function(){
+      timer=setTimeout(function(){
         a.channel.send("Le pirate est parti...");
         exist = 0;
       }, 1800000);
